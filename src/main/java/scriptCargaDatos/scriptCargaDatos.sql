@@ -57,13 +57,13 @@ VALUES
     (5, 'Empleado 5', 'Apellido 5');
 
 -- Inserción de datos para la tabla Estado
-INSERT INTO estado (id, nombre, descripcion, estado_final)
+INSERT INTO estado (id, nombre, descripcion)
 VALUES
-    (1, 'Estado 1', 'Descripción Estado 1', true),
-    (2, 'Estado 2', 'Descripción Estado 2', false),
-    (3, 'Estado 3', 'Descripción Estado 3', true),
-    (4, 'Estado 4', 'Descripción Estado 4', false),
-    (5, 'Estado 5', 'Descripción Estado 5', true);
+    (1, 'cancelado', 'Descripción Estado 1'),
+    (2, 'Estado 2', 'Descripción Estado 2'),
+    (3, 'Estado 3', 'Descripción Estado 3'),
+    (4, 'Estado 4', 'Descripción Estado 4'),
+    (5, 'Estado 5', 'Descripción Estado 5');
 
 -- Inserción de datos para la tabla OrdenDeLaboreo
 INSERT INTO orden_de_laboreo (id, momento_laboreo_id, orden, tipo_laboreo_id)
@@ -127,7 +127,7 @@ VALUES
 INSERT INTO lote_proyectos_cultivo (lote_id, proyectos_cultivo_id)
 VALUES
     (1, 1),
-    (1, 2),
+    (2, 2),
     (3, 3),
     (4, 4),
     (5, 5);

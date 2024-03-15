@@ -37,15 +37,9 @@ public class Lote implements Serializable{
     }
 
     public boolean tieneProyectoCultivoVigente() {
-        boolean siTiene = false;
-        for(ProyectoDeCultivo proyecto : proyectosCultivo){
-            if(proyecto.estaVigente()){
-                siTiene = true;
-                break;
-            }
-        }
-        return siTiene;
+        return proyectosCultivo.stream().anyMatch(ProyectoDeCultivo::estaVigente);
     }
+
 
     public LocalDate mostrarFechaInicioProyectoVigente(Long id) {
     for(ProyectoDeCultivo proyecto : proyectosCultivo){

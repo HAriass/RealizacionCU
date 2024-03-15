@@ -14,6 +14,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class GestorLaboreos {
@@ -77,6 +79,7 @@ public class GestorLaboreos {
             }
         }
     }
+    
     @GetMapping("/pedirSeleccionLotesConProyectoCultivo")
     public String pedirSeleccionLotesConProyectoCultivo(Model model){
         this.mapaLotesFechaInicio.clear();
@@ -85,4 +88,9 @@ public class GestorLaboreos {
         return "mostrarLotesConProyectoDeCultivo";
     }
 
+    @PostMapping("/tomarSeleccionLotes")
+    public String registrarLaboreos(@RequestParam("lotesSeleccionados") List<Long> lotesSeleccionados) {
+        System.out.println("lotes seleccionados" + lotesSeleccionados);
+        return "redirect:/"; // Redirige a la página principal después de procesar la selección de lotes
+    }
 }

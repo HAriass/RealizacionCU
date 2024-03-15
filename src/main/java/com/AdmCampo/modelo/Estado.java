@@ -20,15 +20,14 @@ public class Estado implements Serializable{
     private Long id;
     private String nombre;
     private String descripcion;
-    private boolean estadoFinal;
 
     public Estado() {
     }
 
-    public boolean esFinal() {
-        if(this.getNombre()=="cancelado" || this.getNombre()=="enPostSiembra" ){
-            return true;
-        }else return false;
+   public boolean esFinal() {
+        System.out.println("nombre estado = " + this.getNombre());
+        return "cancelado".equals(this.getNombre()) || "enPostSiembra".equals(this.getNombre());
     }
+
     
 }
