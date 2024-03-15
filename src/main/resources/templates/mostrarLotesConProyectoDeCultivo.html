@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administracion Laboreos</title>
+</head>
+<body>
+    <h1>Lotes con proyectos de cultivo vigente</h1>
+    <div>
+        <form action="/registrarLaboreos" method="post">
+            <br>
+            <table border="2">
+                <tr>
+                    <th>Seleccionar</th>
+                    <th>Numero lote</th>
+                    <th>Fecha de inicio del proyecto vigente</th>
+                </tr>
+                <tr th:each="entry : ${mapaLotesFechaInicio}">
+                    <td>
+                        <input type="checkbox" name="lotesSeleccionados" th:value="${entry.key}">
+                    </td>
+                    <td th:text="${entry.key}"></td>
+                    <td th:text="${entry.value}"></td>
+                </tr>
+            </table>
+            <button type="submit">confirmar seleccion</button>
+        </form>
+    </div>
+    <div class="text-center" th:if="${mapaLotesFechaInicio == null or mapaLotesFechaInicio.isEmpty()}">
+        No existen lotes con proyecto de cultivo vigente.
+    </div>
+</body>
+</html>

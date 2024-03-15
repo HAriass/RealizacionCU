@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Administracion Laboreos</title>
+</head>
+<body>
+    <h1>Campos Habilitados</h1>
+    <div>
+            <br>
+            <table border="2">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Seleccionar</th>
+                </tr>
+                <tr th:each="campo: ${camposHabilitados}">
+                    <td th:text="${campo.nombre}"></td>
+                    <td><a th:href="@{/tomarSeleccionCampo/}+${campo.id}" th:text="seleccionar">Seleccionar</a></td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-center" th:if="${camposHabilitados==null}">
+            No existen campos habilitados.
+        </div>
+</body>
+</html>
